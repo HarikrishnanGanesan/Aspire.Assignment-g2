@@ -10,6 +10,7 @@ namespace Assignment.Core.Mapper
         {
             CreateMap<App, AppDTO>();
             CreateMap<User, UserDTO>();
+            CreateMap<Booking, BookingDTO>();
             CreateMap<CarDetails,CarDetailsDTO>();
             CreateMap<UserProfile,UserProfileDTO>();
         }

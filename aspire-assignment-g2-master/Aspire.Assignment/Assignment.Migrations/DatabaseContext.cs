@@ -23,7 +23,7 @@ namespace Assignment.Migrations
         public DbSet<User> User { get; set; }
         public DbSet<CarDetails> CarDetails { get; set; }
         public DbSet<UserProfile> Profiles { get; set; }
-        
+        public DbSet<Booking> Booking { get; set; }
         
     }
 }

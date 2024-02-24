@@ -18,7 +18,7 @@ namespace Assignment.Core.Data
         public IUserRepository User => new UserRepository(_context);
         public ICarsRepository Cars => new CarsRepository(_context);
         public IProfileRepository UserProfiles => new ProfileRepository(_context);
-
+        public IBookingRepository Booking => new BookingRepository(_context);
         public async Task CommitAsync()
         {
             await _context.SaveChangesAsync();

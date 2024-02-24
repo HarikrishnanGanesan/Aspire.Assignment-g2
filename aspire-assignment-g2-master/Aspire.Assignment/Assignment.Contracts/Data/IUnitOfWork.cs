@@ -8,6 +8,7 @@ namespace Assignment.Contracts.Data
         IUserRepository User { get; }
         ICarsRepository Cars {get;}
         IProfileRepository UserProfiles {get;}
+        IBookingRepository Booking { get; }
         Task CommitAsync();
     }
 }
