@@ -1,0 +1,81 @@
+body{
+  margin: 0;
+  margin-bottom: 0;
+  background: linear-gradient(to bottom right, #eda3ed, #fc84c0);
+}
+.container{
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.panel {
+  margin-top: 50px;
+  border: none;
+  box-shadow: none;
+  width: 80%;
+}
+#image{
+  margin: 30px;
+  float: left;
+  width: 40%;
+}
+img{
+  width: 450px;
+  height: 280px;
+}
+#details{
+  line-height: 30px;
+  margin-top: 50px;
+  margin-left: 150px;
+  width:30%;
+  font-size: medium;
+  font-weight: 550;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#animation{
+  background-image: url('https://www.bing.com/th/id/OGC.d747ffd41e69b14e76f8e885eaefe75b?pid=1.7&rurl=https%3a%2f%2fi.pinimg.com%2foriginals%2fee%2f5e%2f3a%2fee5e3af0efd1bf7292a099ded06c2e80.gif&ehk=78VQd%2fqmOdnZV8DTZKG8MUw9WlVIeYjQ28UByC2VDU8%3d');
+  margin-left: 50px;
+  position: absolute;
+  top: 50px;
+  right: 110px; /* Align to the right corner */
+  width: 200px; /* Adjust the width as needed */
+  height: 200px; /* Adjust the height as needed */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+a{
+  margin-left: 60px;
+  background-color: rgb(72, 72, 234);
+  color:white;
+  padding: 5px;
+  border: none;
+  border-radius: 5%;
+  text-decoration: none;
+}
+a:hover{
+  background-color: rgb(62, 127, 241);
+}
+h3{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+#available{
+  font-weight: bolder;
+  font-size: medium;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#additional{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 60px;
+}
+#buttonbelow{
+display: inline-flex;
+}
+#content{
+  display: inline-flex;
+}
+#price{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 60px;
+  margin-bottom: 30px;
+}

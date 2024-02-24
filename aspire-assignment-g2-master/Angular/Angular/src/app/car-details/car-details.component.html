@@ -1,0 +1,37 @@
+<html><head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="panel">
+    <div id="content">
+      <div id="image">
+        <img src="{{imagesrc}}" alt="{{carDetails.model}}">
+      </div>
+      <div id="details">
+        <h3>{{carDetails.model}} - {{carDetails.modelYear}} by {{carDetails.manufacturerName}}</h3>
+        <p id="available"> {{carDetails.available}} </p>
+        <p>Fuel : {{carDetails.fuelType}} </p>
+        <p>Mileage : {{carDetails.mileage}} Km </p>
+        <p *ngIf="isAcAvailable;else non_ac" >Ac : Yes Available</p>
+        <ng-template #non_ac ><p>Ac : No</p></ng-template>
+        <p>Km driven before : {{carDetails.kilometersDriven}}</p>
+      </div>
+      <div id="animation"></div>
+    </div>
+  </div>
+  <div id="additional">
+  <p> {{carDetails.description}} </p>
+</div><br>
+<div id="buttonbelow">
+<div id="price">
+  <b> Price Range : {{carDetails.pricePerHour|currency:'INR'}}/hr, {{carDetails.pricePerDay|currency:'INR'}}/day and {{carDetails.pricePerWeek|currency:'INR'}}/week</b>
+</div>
+  <div >
+    <a  href="#" type="button" (click)="bookCar(carDetails)"><i class="fa fa-check" aria-hidden="true"></i>&nbsp; Book Car</a>
+    <a  href="#" (click)="addToWishList(carDetails)"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Add To WishList</a>
+  </div></div>
+
+</div>
+</body>
+</html>

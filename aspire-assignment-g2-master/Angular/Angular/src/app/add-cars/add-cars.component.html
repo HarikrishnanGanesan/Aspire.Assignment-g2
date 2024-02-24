@@ -1,0 +1,110 @@
+<body>
+<form [formGroup]="addCarForm" (ngSubmit)="onSubmit()">
+ <h2> New Car Details</h2>
+  <span><span ><label>Reg No</label> <input type="text" formControlName="registrationNumber" placeholder="AS12D3456"></span>
+  <span ><label>Manufacturer</label><input type="text" formControlName="manufacturerName" placeholder="Manufacturer Name">
+  </span>
+  <span>
+  <div *ngIf="addCarForm.get('registrationNumber')?.invalid  && (addCarForm.get('registrationNumber')?.dirty    || addCarForm.get('registrationNumber')   && errorMessage) ">
+    <p *ngIf="addCarForm.get('registrationNumber')?.hasError('required')">Registration number is required.</p>
+    <p *ngIf="addCarForm.get('registrationNumber')?.hasError('pattern')">Invalid registration number format. Follow the format AS12D3456.</p>
+  </div>
+  <div *ngIf="addCarForm.get('manufacturerName')?.invalid  && (addCarForm.get('manufacturerName')?.dirty    || addCarForm.get('manufacturerName')   && errorMessage) ">
+    <p *ngIf="addCarForm.get('manufacturerName')?.hasError('required')">Please provide Manufacturer Name.</p>
+  </div></span>
+ <span><span ><label>Car Model</label> <input type="text" formControlName="model" placeholder="Car Model"></span>
+ <span ><label>Model Year</label><select type="number" formControlName="modelYear" placeholder="Model Year">
+  <option [defaultSelected]="2004" value="2004" >2004</option>
+<option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+ </select></span>
+  </span><span>
+  <div *ngIf="addCarForm.get('model')?.invalid  && (addCarForm.get('model')?.dirty    || addCarForm.get('model')  &&  errorMessage) ">
+    <p *ngIf="addCarForm.get('model')?.hasError('required')">Please provide Car Model Name.</p>
+  </div>
+  <div *ngIf="addCarForm.get('modelYear')?.invalid  && (addCarForm.get('modelYear')?.dirty    || addCarForm.get('modelYear')   && errorMessage) ">
+    <p *ngIf="addCarForm.get('modelYear')?.hasError('required')">Please provide Model Year.</p><br>
+    <p *ngIf="addCarForm.get('modelYear')?.hasError('min','max')">Model Year should be between 2004 - 2024</p>
+  </div></span>
+  <span><span ><label>Capacity</label><input type="number" formControlName="passengerCapacity" placeholder="Passenger Capacity"></span>
+  <span ><label>Colour</label><input type="text" formControlName="colour" placeholder="Colour"></span>
+  </span><span>
+  <div *ngIf="addCarForm.get('passengerCapacity')?.invalid  && (addCarForm.get('passengerCapacity')?.dirty    || addCarForm.get('passengerCapacity')   && errorMessage) ">
+    <p *ngIf="addCarForm.get('passengerCapacity')?.hasError('required')">Please provide Passanger Capacity.</p>
+    <p *ngIf="addCarForm.get('passengerCapacity')?.hasError('min')">Please provide valid Capacity.</p>
+  </div>
+  <div *ngIf="addCarForm.get('colour')?.invalid  && (addCarForm.get('colour')?.dirty    || addCarForm.get('colour')   && errorMessage) ">
+    <p *ngIf="addCarForm.get('colour')?.hasError('required')">Please provide Car Colour.</p>
+  </div></span>
+  <span><span ><label>Transmission</label><select type="text" formControlName="transmissionType" placeholder="Transmission Type">
+    <option value="Self">Self</option>
+    <option value="Automatic">Automatic</option>
+  </select></span>
+  <span ><label>Fuel Type</label><select type="text" formControlName="fuelType" placeholder="Fuel Type">
+    <option value="Petrol">Petrol</option>
+    <option value="Diesel">Diesel</option>
+    <option value="Electricity">Electricity</option>
+    <option value="CNG">CNG</option>
+  </select></span>
+  </span><span>
+  <div *ngIf="addCarForm.get('transmissionType')?.invalid  && (addCarForm.get('transmissionType')?.dirty    || addCarForm.get('transmissionType')   && errorMessage) ">
+    <p *ngIf="addCarForm.get('transmissionType')?.hasError('required')">Please provide Transmission Type.</p>
+  </div>
+  <div *ngIf="addCarForm.get('fuelType')?.invalid  && (addCarForm.get('fuelType')?.dirty    || addCarForm.get('fuelType')   && errorMessage) ">
+    <p *ngIf="addCarForm.get('fuelType')?.hasError('required')">Please provide Fuel Type.</p>
+  </div></span>
+  <span>
+    <span ><label>Mileage</label><input type="number" formControlName="mileage" placeholder="Mileage"></span>
+      <span ><label>Car Image</label><input type="file" formControlName="imageFile"  (change)="onImageUpload($event)" placeholder="Images.jpg"></span>
+  </span><span>
+  <div *ngIf="addCarForm.get('mileage')?.invalid  && (addCarForm.get('mileage')?.dirty    || addCarForm.get('mileage')   && errorMessage) ">
+    <p *ngIf="addCarForm.get('mileage')?.hasError('required')">Please provide Car Mileage.</p>
+    <p *ngIf="addCarForm.get('mileage')?.hasError('min')">Please provide valid Mileage.</p>
+  </div>
+  <div *ngIf="addCarForm.get('imageFile')?.invalid  && (addCarForm.get('imageFile')?.dirty    || addCarForm.get('imageFile')   && errorMessage)">
+    <p *ngIf="addCarForm.get('imageFile')?.hasError('required')">Car Image is required.</p>
+  </div></span>
+  <span>
+    <span ><label>Price/hr</label><input type="number" formControlName="pricePerHour" placeholder="100"></span>
+      <span ><label>Price/day</label><input type="number" formControlName="pricePerDay" placeholder="1000"></span>
+  </span><span>
+  <div *ngIf="addCarForm.get('pricePerHour')?.invalid  && (addCarForm.get('pricePerHour')?.dirty    || addCarForm.get('pricePerHour')   && errorMessage) ">
+    <p *ngIf="addCarForm.get('pricePerHour')?.hasError('required')">Please provide Price/hr.</p>
+    <p *ngIf="addCarForm.get('pricePerHour')?.hasError('min')">Please provide valid Price/hr.</p>
+    <div *ngIf="addCarForm.get('pricePerHour')?.hasError('wrongPrice')">Please check Price/hr.</div>
+  </div>
+  <div *ngIf="addCarForm.get('pricePerDay')?.invalid  && (addCarForm.get('pricePerDay')?.dirty    || addCarForm.get('pricePerDay')   && errorMessage) ">
+    <p *ngIf="addCarForm.get('pricePerDay')?.hasError('required')">Please provide Price/day.</p>
+    <p *ngIf="addCarForm.get('pricePerDay')?.hasError('min')">Please provide valid Price/day.</p>
+    <div *ngIf="addCarForm.get('pricePerDay')?.hasError('wrongPrice')">Please check Price/day.</div>
+  </div></span>
+  <span> <span ><label>Price/week</label><input type="number" formControlName="pricePerWeek" placeholder="10000"></span>
+  <span ><label>Km Driven</label><input type="number" formControlName="kilometersDriven" placeholder="100"></span>
+  </span><span>
+  <div *ngIf="addCarForm.get('pricePerWeek')?.invalid  && (addCarForm.get('pricePerWeek')?.dirty    || addCarForm.get('pricePerWeek')   && errorMessage) ">
+    <p *ngIf="addCarForm.get('pricePerWeek')?.hasError('required')">Please provide Price/week.</p>
+    <p *ngIf="addCarForm.get('pricePerWeek')?.hasError('min')">Please provide valid Price/week.</p>
+    <div *ngIf="addCarForm.get('pricePerWeek')?.hasError('wrongPrice')">Please check Price/week.</div>
+  </div>
+  <div *ngIf="addCarForm.get('kilometersDriven')?.invalid  && (addCarForm.get('kilometersDriven')?.dirty    || addCarForm.get('kilometersDriven')   && errorMessage) ">
+    <p *ngIf="addCarForm.get('kilometersDriven')?.hasError('required')">Please provide Kilometers Driven</p>
+    <p *ngIf="addCarForm.get('kilometersDriven')?.hasError('min')">Please provide valid Km driven.</p>
+  </div></span>
+  <span><span ><label>Availability</label><select type="text" formControlName="available" placeholder="Car Availability">
+  <option value="Available">Available</option>
+  <option value="Unavailable">Unavailable</option>
+  <option value="Rented">Rented</option>
+  </select>
+  </span><span>
+  <span ><label>Description</label><input type="text" formControlName="description" placeholder="Description"></span>
+ </span>
+ <div *ngIf="addCarForm.get('available')?.invalid  && (addCarForm.get('available')?.dirty    || addCarForm.get('available')   && errorMessage) ">
+  <p *ngIf="addCarForm.get('available')?.hasError('required')">Please fill Car Availability status</p>
+</div>
+<div *ngIf="addCarForm.get('description')?.invalid  && (addCarForm.get('description')?.dirty    || addCarForm.get('description')   && errorMessage) ">
+  <p *ngIf="addCarForm.get('description')?.hasError('required')">Add description for the Car.</p>
+</div></span>
+<input style="margin-left: 120px;" type="checkbox" formControlName="hasac">Has AC
+  <input formControlName="imageData" value="0x" hidden >
+  <button type="submit" onmouseover="onMouseOn()" [disabled]="isDisabled()" >Submit</button></span>
+</form>
+</body>
