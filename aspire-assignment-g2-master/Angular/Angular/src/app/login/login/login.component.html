@@ -1,29 +1,108 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form class="example-form">
-      <table class="example-full-width" cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Username" [(ngModel)]="userName" name="username" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-    </form>
-    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button (click)="login()" color="primary">Login</button>
-  </mat-card-actions>
-</mat-card>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<div>
+  Name:
+  <input [(ngModel)]="user.username" placeholder="Name">
+</div>
+<div>
+  Password:
+  <input [(ngModel)]="user.password" placeholder="Password" type="password">
+</div>
+<button (click)="register(user)">Register</button>
+<button (click)="login(user)">Login</button>
+<button (click)="getme()">Get Me</button>
+
+
+
+<!-- <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" class="form-control" placeholder="Enter your email">
+      <div *ngIf="loginForm.get('email')!.invalid && loginForm.get('email')!.touched" class="text-danger">
+        Email is required and must be a valid email address.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" class="form-control" placeholder="Enter your password">
+      <div *ngIf="loginForm.get('password')!.invalid && loginForm.get('password')!.touched" class="text-danger">
+        Password is required.
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+  
+  <div *ngIf="InvalidLogin" class="alert alert-danger mt-3">
+    Invalid email or password. Please try again.
+  </div>
+   -->
+
+
+
+
+
+<div class="section">
+  <div class="container">
+    <p class="title"><span>LOGIN</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>REGISTER</span></p>
+		<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+		<label for="reg-log"></label>
+        <div class="card-3d-wrap">
+            <div class="card-3d-wrapper">
+                <div class="card-front">
+                    <div class="center-wrap">
+                        <div class="section">
+                            <h2 class="mb-4 pb-3"><b>LOGIN</b></h2>
+                            <div class="form-group">
+                              <img src="assets/envelope-regular.svg" alt="User Icon" class="email-icon">
+                              <input [(ngModel)]="user.username" type="email" name="logemail" class="form-style" placeholder="Your email address" id="logemail" autocomplete="off">
+                              <!--input type="email" name="logemail" class="form-style" placeholder="Your email address" id="logemail" autocomplete="off"-->
+                            </div>
+                            <div class="form-group mt-2">                              
+                              <img src="assets/lock-solid.svg" alt="User Icon" class="password-icon">
+                              <input [(ngModel)]="user.password" placeholder="Password" type="password" name="logpass" class="form-style" placeholder="Your password" id="logpass" autocomplete="off">
+                              <!--input type="password" name="logpass" class="form-style" placeholder="Your password" id="logpass" autocomplete="off"-->
+                            </div>
+                            <p class="mb-0 mt-4 text-right"><a href="#0" class="link">Forgot password?</a></p>
+                            <button class="btn mt-4 text-center" (click)="login(user)">Login</button>
+                            <p class="or">OR</p>
+                            <button class="google-icon-text">Sign in with Google</button><img src="assets/google.svg" alt="User Icon" class="google-icon">
+                          </div>
+                          <div>
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="card-back">
+                        <div class="section">
+                            <h2 class="mb-4 pb-3"><b>REGISTER</b></h2>
+                            <!--div class="form-group-2">
+                                <input type="text" name="logname" class="form-style" placeholder="Full Name" id="logname" autocomplete="off">
+                                <i class="input-icon uil uil-user"></i>
+                            </div>	
+                            <div class="form-group-2 mt-2">
+                                <input type="email" name="logemail" class="form-style" placeholder="Email address" id="logemail" autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-group-2 mt-2">
+                                <input type="text" name="logmobile" class="form-style" placeholder="Mobile Number" id="logmobile" autocomplete="off">
+                                <i class="input-icon uil uil-phone-alt"></i>
+                            </div>
+                            <div class="form-group-2 mt-2">
+                                <input type="password" name="logpass" class="form-style" placeholder="Password" id="logpass" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <div class="form-group-2 mt-2">
+                                <input type="password" name="logpass" class="form-style" placeholder="Confirm Password" id="logpass" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <a href="#" class="btn mt-4">Register</a>
+                        </div-->
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
