@@ -7,6 +7,7 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
+import { HomeComponent } from "./home/home.component";
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { FooterComponent } from "./footer/footer.component";
         LoginModule,
         HttpClientModule,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        HomeComponent
     ]
 })
 export class AppModule { }
